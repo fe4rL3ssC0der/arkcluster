@@ -60,7 +60,7 @@ services:
       - "7778:7778/udp"
       - "27015:27015/udp"
 
-  island:
+  valguero:
     image: r15ch13/arkcluster:latest
     deploy:
       mode: global
