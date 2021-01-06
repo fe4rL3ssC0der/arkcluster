@@ -23,7 +23,7 @@ version: "3.5"
 
 services:
   island:
-    image: fe4rl3ssc0der/arkcluster:latest
+    image: fe4rl3ssc0der/ark_server-cluster:latest
     deploy:
       mode: global
     environment:
@@ -61,7 +61,7 @@ services:
       - "27015:27015/udp"
 
   valguero:
-    image: fe4rl3ssc0der/arkcluster:latest
+    image: fe4rl3ssc0der/ark_server-cluster:latest
     deploy:
       mode: global
     environment:
