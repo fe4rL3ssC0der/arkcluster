@@ -86,6 +86,7 @@ if [ ! -d /ark/server  ] || [ ! -f /ark/server/version.txt ]; then
     # touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
     # chown -R steam:steam /ark/server
     # arkmanager install
+    exit 0
 else
     if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark/server/ShooterGame/Saved/SavedArks/)" ]; then
         log "Creating Backup ..."
