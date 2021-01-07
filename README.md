@@ -1,5 +1,7 @@
 # ARK: Survival Evolved - Docker Cluster
 
+Work in progress !!! Not Finished - DO NOT USE UNTIL I'M DONE!
+
 Docker build for managing an __ARK: Survival Evolved__ server cluster.
 
 This image uses [Ark Server Tools](https://github.com/FezVrasta/ark-server-tools) to manage an ark server and is forked from [r15ch13/arkcluster](https://github.com/r15ch13/arkcluster).
