@@ -73,8 +73,15 @@ if [ ! -L /etc/arkmanager/instances/main.cfg ]; then
 fi
 
 # Put steam owner of directories (if the uid changed, then it's needed)
-chown -R steam:steam /ark /home/steam /cluster
+chown -R steam:steam /ark /home/steam /cluster /ark_server
 log "###########################################################################"
+
+if [ ! -d /ark_server/savedarks  ]; then
+    mkdir -p /ark_server/savedarks
+else
+    log "Ark Save Dir Already Exists ..."
+fi
+
 
 # sleep 5
 # if [ ! -d /ark/server  ] || [ ! -f /ark/server/version.txt ]; then
