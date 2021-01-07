@@ -76,30 +76,23 @@ fi
 chown -R steam:steam /ark /home/steam /cluster /ark_server
 log "###########################################################################"
 
-if [ ! -d /ark_server/savedarks  ]; then
-    mkdir -p /ark_server/savedarks
+
+if [ ! -d /ark/server  ] || [ ! -f /ark/server/version.txt ]; then
+    # log "No game files found."
+    # log "Please install ark on host machine and try again..."
+    mkdir -p /ark/server/ShooterGame/Saved/SavedArks
+    mkdir -p /ark/server/ShooterGame/Content/Mods
+    mkdir -p /ark/server/ShooterGame/Binaries/Linux
+    touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
+    chown -R steam:steam /ark/server
+    # arkmanager install
+    exit 0
 else
-    log "Ark Save Dir Already Exists ..."
+    if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark/server/ShooterGame/Saved/SavedArks/)" ]; then
+        log "Creating Backup ..."
+        arkmanager backup
+    fi
 fi
-
-
-# sleep 5
-# if [ ! -d /ark/server  ] || [ ! -f /ark/server/version.txt ]; then
-#     log "No game files found."
-#     log "Please install ark on host machine and try again..."
-#     # mkdir -p /ark/server/ShooterGame/Saved/SavedArks
-#     # mkdir -p /ark/server/ShooterGame/Content/Mods
-#     # mkdir -p /ark/server/ShooterGame/Binaries/Linux
-#     # touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
-#     # chown -R steam:steam /ark/server
-#     # arkmanager install
-#     exit 0
-# else
-#     if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark/server/ShooterGame/Saved/SavedArks/)" ]; then
-#         log "Creating Backup ..."
-#         arkmanager backup
-#     fi
-# fi
 
 # log "###########################################################################"
 # log "Installing Mods ..."
