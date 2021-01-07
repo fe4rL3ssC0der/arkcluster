@@ -106,6 +106,8 @@ log "###########################################################################
 #     arkmanager start -noautoupdate
 # fi
 
+wait
+
 # Stop server in case of signal INT or TERM
 log "###########################################################################"
 log "Running ... (waiting for INT/TERM signal)"
