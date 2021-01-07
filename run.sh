@@ -76,14 +76,16 @@ fi
 chown -R steam:steam /ark /home/steam /cluster
 log "###########################################################################"
 
+sleep 5
 if [ ! -d /ark/server  ] || [ ! -f /ark/server/version.txt ]; then
     log "No game files found. Installing..."
-    mkdir -p /ark/server/ShooterGame/Saved/SavedArks
-    mkdir -p /ark/server/ShooterGame/Content/Mods
-    mkdir -p /ark/server/ShooterGame/Binaries/Linux
-    touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
-    chown -R steam:steam /ark/server
-    arkmanager install --dots
+    log "Please install ark on host machine and try again..."
+    # mkdir -p /ark/server/ShooterGame/Saved/SavedArks
+    # mkdir -p /ark/server/ShooterGame/Content/Mods
+    # mkdir -p /ark/server/ShooterGame/Binaries/Linux
+    # touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
+    # chown -R steam:steam /ark/server
+    # arkmanager install
 else
     if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark/server/ShooterGame/Saved/SavedArks/)" ]; then
         log "Creating Backup ..."
