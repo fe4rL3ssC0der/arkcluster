@@ -1,8 +1,9 @@
-version: "3.5"
+version: "3.7"
 
 services:
   island:
-    image: fe4rL3ssC0der/arkcluster:latest
+    image: fe4rl3ssc0der/arkcluster:latest
+    container_name: island
     deploy:
       mode: global
     environment:
@@ -32,7 +33,6 @@ services:
       KILL_ALL_PROCESSES_TIMEOUT: 300
       ALT_SAVE_DIR: ""
     volumes:
-      - resources:/ark/server/ShooterGame  # This gives access to the installed server files on host (Linux)
       - server_island:/ark
       - cluster:/cluster
     ports:
@@ -42,7 +42,7 @@ services:
       - "27015:27015/udp"
 
   # valguero:
-  #   image: fe4rL3ssC0der/arkcluster:latest
+  #   image: fe4rl3ssc0der/arkcluster:latest
   #   deploy:
   #     mode: global
   #   environment:
@@ -81,13 +81,7 @@ services:
   #     - "27016:27016/udp"
 
 volumes:
-  resources:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/steam/ARK/ShooterGame
   server_island:
   # server_valguero:
   cluster:
-  
+ 
