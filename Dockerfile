@@ -32,16 +32,18 @@ ENV CRON_AUTO_UPDATE="0 */3 * * *" \
     MODS="" \
     CLUSTER_ID="keepmesecret" \
     KILL_PROCESS_TIMEOUT=300 \
-    KILL_ALL_PROCESSES_TIMEOUT=300
+    KILL_ALL_PROCESSES_TIMEOUT=300 \
+    ALT_SAVE_DIR=""
 
 RUN mkdir -p /etc/service/arkcluster
 COPY run.sh /etc/service/arkcluster/run
 RUN chmod +x /etc/service/arkcluster/run
+RUN mkdir -p /ark_server/savedarks
 
 COPY crontab /home/steam/crontab
 
-COPY arkmanager.cfg /etc/arkmanager/arkmanager.cfg
+COPY arkmanager.cfg /ark/arkmanager/arkmanager.cfg
 COPY arkmanager-user.cfg /home/steam/arkmanager-user.cfg
 
-VOLUME /ark /cluster
+VOLUME /ark /ark_server /cluster 
 WORKDIR /ark
