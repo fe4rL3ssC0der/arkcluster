@@ -87,7 +87,6 @@ if [[  -d /ark  ] && [  ! -d /ark/server  ]] || [ ! -f /ark/server/version.txt ]
     chown -R steam:steam /ark/server
     log "Directors Successfully Created..."
     # arkmanager install
-    exit 0
 else
     if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark/server/ShooterGame/Saved/SavedArks/)" ]; then
         log "Creating Backup ..."
