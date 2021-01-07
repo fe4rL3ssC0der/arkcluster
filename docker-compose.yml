@@ -31,9 +31,10 @@ services:
       CLUSTER_ID: "keepmesecret"
       KILL_PROCESS_TIMEOUT: 300
       KILL_ALL_PROCESSES_TIMEOUT: 300
-      ALT_SAVE_DIR: ""
+      ALT_SAVE_DIR: "/ark_server/savedarks"
     volumes:
-      - server_island:/ark
+      - server_island:/ark_server
+      - ark_install:/ark
       - cluster:/cluster
     ports:
       - "32330:32330/tcp"
@@ -70,9 +71,10 @@ services:
   #     CLUSTER_ID: "keepmesecret"
   #     KILL_PROCESS_TIMEOUT: 300
   #     KILL_ALL_PROCESSES_TIMEOUT: 300
-  #     ALT_SAVE_DIR: ""
+  #     ALT_SAVE_DIR: "/ark_server/savedarks"
   #   volumes:
-  #     - server_valguero:/ark
+  #     - server_valguero:/ark_server
+  #     - ark_install:/ark
   #     - cluster:/cluster
   #   ports:
   #     - "32331:32331/tcp"
@@ -81,7 +83,7 @@ services:
   #     - "27016:27016/udp"
 
 volumes:
+  ark_install:
   server_island:
   # server_valguero:
   cluster:
- 
