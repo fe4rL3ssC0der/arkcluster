@@ -85,6 +85,7 @@ if [ ! -d /ark/server  ] || [ ! -f /ark/server/version.txt ]; then
     mkdir -p /ark/server/ShooterGame/Binaries/Linux
     touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
     chown -R steam:steam /ark/server
+    log "Directors Successfully Created!"
     # arkmanager install
     exit 0
 else
