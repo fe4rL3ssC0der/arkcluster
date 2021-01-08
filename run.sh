@@ -80,15 +80,24 @@ log "###########################################################################
 if {[ -d /ark ] && [ ! -d /ark/server ];} || [ ! -f /ark/server/version.txt ]; then
     # log "No game files found."
     # log "Please install ark on host machine and try again..."
-    mkdir -p /ark/server/ShooterGame/Saved/SavedArks
+    mkdir -p /ark_server/server/ShooterGame/Saved/SavedArks
     mkdir -p /ark/server/ShooterGame/Content/Mods
     mkdir -p /ark/server/ShooterGame/Binaries/Linux
     touch /ark/server/ShooterGame/Binaries/Linux/ShooterGameServer
     chown -R steam:steam /ark/server
-    log "Directors Successfully Created..."
+    log "Ark Server Directors Successfully Created..."
+    # arkmanager install
+fi
+
+if [ ! -d /ark_server/SavedArks ]; then
+    # log "No game files found."
+    # log "Please install ark on host machine and try again..."
+    mkdir -p /ark_server/savedarks
+    chown -R steam:steam /ark_server/savedarks
+    log "Ark Save Directory Successfully Created..."
     # arkmanager install
 else
-    if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark/server/ShooterGame/Saved/SavedArks/)" ]; then
+    if [ ${BACKUPONSTART} -eq 1 ] && [ "$(ls -A /ark_server/savedarks)" ]; then
         log "Creating Backup ..."
         arkmanager backup
     fi
