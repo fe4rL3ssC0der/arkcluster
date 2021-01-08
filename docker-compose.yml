@@ -36,6 +36,7 @@ services:
       - server_island:/ark_server
       - ark_install:/ark
       - cluster:/cluster
+      - /home/steam/Ark: /ark/server
     ports:
       - "32330:32330/tcp"
       - "7777:7777/udp"
