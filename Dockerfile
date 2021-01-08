@@ -38,6 +38,7 @@ ENV CRON_AUTO_UPDATE="0 */3 * * *" \
 RUN mkdir -p /etc/service/arkcluster
 COPY run.sh /etc/service/arkcluster/run
 RUN chmod +x /etc/service/arkcluster/run
+ADD /home/steam/ARK/ShooterGame /ark/server/
 
 COPY crontab /home/steam/crontab
 
