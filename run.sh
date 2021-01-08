@@ -77,7 +77,7 @@ chown -R steam:steam /ark /home/steam /cluster /ark_server
 log "###########################################################################"
 
 
-if {[ -d /ark ] && [ ! -d /ark/server ];} || [ ! -f /ark/server/version.txt ]; then
+if { [ ! -f /ark/server/version.txt ]; } || { [ -d /ark ] && [ ! -d /ark/server ]; }; then
     # log "No game files found."
     # log "Please install ark on host machine and try again..."
     mkdir -p /ark_server/server/ShooterGame/Saved/SavedArks
